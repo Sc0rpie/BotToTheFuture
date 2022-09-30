@@ -1,5 +1,7 @@
 import discord
+import time
 from functions import *
+from classes import Mission
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -15,8 +17,18 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    if message.content.startswith('$test'):
+        X = fileRead()
+        for i in range (len(X)):
+            print(X[i])
+            if X[i] == '1':
+                
+                await message.channel.send(X[i])
+                time.sleep(0.5)
+
+
+
+
         
 
         
