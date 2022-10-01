@@ -24,12 +24,5 @@ async def on_message(message):
             if X[i] == '1':
                 
                 await message.channel.send(X[i])
-                time.sleep(0.5)
-
-
-
-
-        
-
-        
+             
 client.run('MTAyNDkyMTUxMDYxNzU0NjgxMg.GYJoDb.LwaUCFzSgXa6QWJsnMh0c9DrbhZfv8ikioXfkY')
