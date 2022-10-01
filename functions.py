@@ -3,3 +3,6 @@ def fileRead():
         text = myFile.read()
     result = text.split('$')
     return result
+
+def startRoles():
+    pass
