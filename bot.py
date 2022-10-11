@@ -24,8 +24,8 @@ TOKEN = os.getenv("TOKEN")
 # Intent - ability of a bot to do something (example: message intent for messaging and etc.)
 intents = discord.Intents.all()
 
-# Bot commands start with a prefix (here it's $)
-bot = commands.Bot(command_prefix='$',
+# Bot commands start with a prefix (here it's nothing)
+bot = commands.Bot(command_prefix='',
                    description=description, intents=intents)
 
 start = False
@@ -42,7 +42,7 @@ PARTICIPANT_ID = 1028015588301344940
 HELPER_ID = 1028015634837143623
 BOT_ID = 1026563432054530173
 
-command_list = ["points","easy", "medium", "hard", "hint", "end"]
+command_list = ["points", "easy", "medium", "hard", "end", "help", "lead", "skipeasy", "skipmedium", "skiphard", "done1", "done2", "done3"]
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
@@ -71,17 +71,17 @@ async def on_message(ctx: discord.Message):
         elif channel.id == ADMIN_CHANNEL and command == "start":
             start = True
             print("Event has started")
-            await channel.send("Nu chio pognali n...")
+            await channel.send("Nu chio pojehali chebra\nTikiuosi botas gyvens. Amen.")
 
         elif channel.id == CRIB_CHANNEL and command == "create":
-            if data:
-                if not functions.find_user(str(author.id)):
-                    if await create_guild(ctx, data):
-                        await channel.send("Welcome to the crib dawg, the name of your kitten is: " + data)
-                    else:
-                        await channel.send("Something is not right fella")
+            if not functions.find_user(str(author.id)):
+                name = functions.randomTeamName()
+                if await create_guild(ctx, str(name)):
+                    await channel.send("Welcome to the crib dawg, the name of your kitten is: " + str(name))
                 else:
-                    await channel.send("I think that you already have a kitten, one kitten for one group :)")
+                    await channel.send("Something is not right fella")
+            else:
+                await channel.send("I think that you already have a kitten, one kitten for one group :)")
             # else:
                  #no message here?
         elif channel.id == CRIB_CHANNEL and command == "join":
@@ -124,7 +124,7 @@ async def on_message(ctx: discord.Message):
                 result = tasks.get_task(crib.currentEasyTask)
                 await channel.send(embed = result)
             else:
-                await channel.send("You have completed all of your easy tasks!")
+                await channel.send("You have completed all of your hard tasks!")
 
         elif command == "medium" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
@@ -132,13 +132,14 @@ async def on_message(ctx: discord.Message):
                 result = tasks.get_task(crib.currentMediumTask)
                 await channel.send(embed = result)
             else:
-                await channel.send("You have completed all of your medium tasks!")
+                await channel.send("You have completed all of your hard tasks!")
 
         elif command == "hard" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
             if crib.currentHardTask != -1:
                 result = tasks.get_task(crib.currentHardTask)
                 await channel.send(embed = result)
+            
             else:
                 await channel.send("You have completed all of your hard tasks!")
 
@@ -154,7 +155,7 @@ async def on_message(ctx: discord.Message):
 
         elif command == "skipeasy" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.easyAmt == 2:
+            if crib.easyAmt == 61:
                 await channel.send("Objective can not be skipped. This is the last one")
             else:
                 result = tasks.skip_task(str(channel.id), 1)
@@ -163,15 +164,21 @@ async def on_message(ctx: discord.Message):
         
         elif command == "skipmedium" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
-            result = tasks.skip_task(str(channel.id), 2)
-            if result:
-                await channel.send(result)
+            if crib.mediumAmt == 47:
+                await channel.send("Objective can not be skipped. This is the last one")
+            else:
+                result = tasks.skip_task(str(channel.id), 2)
+                if result:
+                    await channel.send(result)
         
         elif command == "skiphard" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
-            result = tasks.skip_task(str(channel.id), 3)
-            if result:
-                await channel.send(result)
+            if crib.hardAmt == 21:
+                await channel.send("Objective can not be skipped. This is the last one")
+            else:
+                result = tasks.skip_task(str(channel.id), 3)
+                if result:
+                    await channel.send(result)
 
         elif command == "done1" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             # if data == '1':
