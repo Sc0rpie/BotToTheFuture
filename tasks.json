@@ -1,0 +1,1058 @@
+{
+  "1": {
+    "id": 1,
+    "name": "Mission objective: Vytenis",
+    "diff": "1",
+    "person": null, 
+    "task": "Komandos atstovas turi paglostyti Vytenio galvą",
+    "reward": 1
+  },
+  "2": {
+    "id": 2,
+    "name": "Mission objective: Vytenis",
+    "diff": "1",
+    "person": null,
+    "task": "Mystery box",
+    "reward": 1
+  },
+  "3": {
+    "id": 3,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "1",
+    "person": null, 
+    "task": "Dviejų lyčių atstovai apsikeičia rūbais",
+    "reward": 1
+  },
+  "4": {
+    "id": 4,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "1",
+    "person": null, 
+    "task": "Išvardinti 10 programavimo kalbų",
+    "reward": 1
+  },
+  "5": {
+    "id": 5,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "1",
+    "person": null, 
+    "task": "Laimėti kryžiukus nuliukus prieš Gabrielę",
+    "reward": 1
+  },
+  "6": {
+    "id": 6,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "1",
+    "person": null, 
+    "task": "Konvertuoti dvejetaine arba šešioliktaine sistema parašytą skaičių į dešimtainę sistemą",
+    "reward": 1
+  },
+  "7": {
+    "id": 7,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "1",
+    "person": null, 
+    "task": "Visa komanda turi apkabinti Gabrielę",
+    "reward": 1
+  },
+  "8": {
+    "id": 8,
+    "name": "Mission objective: Eglė",
+    "diff": "1",
+    "person": null, 
+    "task": "Įrodykit, kad FIDI > MIDI",
+    "reward": 1
+  },
+  "9": {
+    "id": 9,
+    "name": "Mission objective: Eglė",
+    "diff": "1",
+    "person": null, 
+    "task": "Pateikit 10 faktų kodėl MIDI > KD",
+    "reward": 1
+  },
+  "10": {
+    "id": 10,
+    "name": "Mission objective: Eglė",
+    "diff": "1",
+    "person": null, 
+    "task": "Išvardinti tris matematikos teoremas ir jas paaiškinti",
+    "reward": 1
+  },
+  "11": {
+    "id": 11,
+    "name": "Mission objective: Eglė",
+    "diff": "1",
+    "person": null, 
+    "task": "Visi komandos nariai 1 minutę daro grupinį apsikabinimą",
+    "reward": 1
+  },
+  "12": {
+    "id": 12,
+    "name": "Mission objective: Eglė",
+    "diff": "1",
+    "person": null, 
+    "task": "Eglei pristatyti 3 žmones, kurie augina katinus",
+    "reward": 1
+  },
+  "13": {
+    "id": 13,
+    "name": "Mission objective: Vaiva",
+    "diff": "1",
+    "person": null, 
+    "task": "Kiekvienam iš komandos pasibučiuoti su savo lyties žmogumi",
+    "reward": 1
+  },
+  "14": {
+    "id": 14,
+    "name": "Mission objective: Vaiva",
+    "diff": "1",
+    "person": null, 
+    "task": "Atpasakokit visą “Back to the future” siužetą",
+    "reward": 1
+  },
+  "15": {
+    "id": 15,
+    "name": "Mission objective: Vaiva",
+    "diff": "1",
+    "person": null,
+    "task": "Apsukti delną nejudinant riešo",
+    "reward": 1
+  },
+  "16": {
+    "id": 16,
+    "name": "Mission objective: Barbora",
+    "diff": "1",
+    "person": 0,
+    "task": "Nufotografuokit penkias tatuiruotes ir parodykit Barborai",
+    "reward": 1
+  },
+  "17": {
+    "id": 17,
+    "name": "Mission objective: Rokas",
+    "diff": "1",
+    "person": 0,
+    "task": "Pataikyti popieriaus gabaliuką į šiukšlių dėžę kitam patalpos gale",
+    "reward": 1
+  },
+  "18": {
+    "id": 18,
+    "name": "Mission objective: Rokas",
+    "diff": "1",
+    "person": 0,
+    "task": "Sudainuokit Kunigundą Rokui",
+    "reward": 1
+  },
+  "19": {
+    "id": 19,
+    "name": "Mission objective: Rokas",
+    "diff": "1",
+    "person": 0,
+    "task": "Pasakykit juokingiausią “your mom” juokelį kurį žinai",
+    "reward": 1
+  },
+  "20": {
+    "id": 20,
+    "name": "Mission objective: Rokas",
+    "diff": "1",
+    "person": 0,
+    "task": "Komanda turi išvardinti visus 10 Elono Musko vaikų vardus",
+    "reward": 1
+  },
+  "21": {
+    "id": 21,
+    "name": "Mission objective: Rokas",
+    "diff": "1",
+    "person": 0,
+    "task": "Vienas komandos narys turi Rokui parodyti savo geriausią Joker impression",
+    "reward": 1
+  },
+  "22": {
+    "id": 22,
+    "name": "Mission objective: Rokas",
+    "diff": "1",
+    "person": 0,
+    "task": "Išspręsti Rubiko kubą",
+    "reward": 1
+  },
+  "23": {
+    "id": 23,
+    "name": "Mission objective: Rokas",
+    "diff": "1",
+    "person": 0,
+    "task": "Per nustatytą laiką, iš ant juosmens pritvirtintos dėžutės su skyle, iškratyti joje esančius kamuoliukus",
+    "reward": 1
+  },
+  "24": {
+    "id": 24,
+    "name": "Mission objective: Ugnė B.",
+    "diff": "1",
+    "person": 0,
+    "task": "Išvardinkit 5 vardus iš nurodytos raidės per 5 sekundes",
+    "reward": 1
+  },
+  "25": {
+    "id": 25,
+    "name": "Mission objective: Ugnė B.",
+    "diff": "1",
+    "person": 0,
+    "task": "Išvardinkit 7 katinų veisles per 15 sekundžių",
+    "reward": 1
+  },
+  "26": {
+    "id": 26,
+    "name": "Mission objective: Ugnė B.",
+    "diff": "1",
+    "person": 0,
+    "task": "Komandai sušokti vieną just dance šokį",
+    "reward": 1
+  },
+  "27": {
+    "id": 27,
+    "name": "Mission objective: Ugnė M.",
+    "diff": "1",
+    "person": 0,
+    "task": "Paklausti Ugnės kodėl ji atrodo tokia pikta ir bauginanti",
+    "reward": 1
+  },
+  "28": {
+    "id": 28,
+    "name": "Mission objective: Simona U.",
+    "diff": "1",
+    "person": 0,
+    "task": "Išsiaiškinkit kiek exit ženklų yra fakultete",
+    "reward": 1
+  },
+  "29": {
+    "id": 29,
+    "name": "Mission objective: Aistė",
+    "diff": "1",
+    "person": 0,
+    "task": "Išvardinkit šešis veikėjus iš duoto filmo",
+    "reward": 1
+  },
+  "30": {
+    "id": 30,
+    "name": "Mission objective: Aistė",
+    "diff": "1",
+    "person": 0,
+    "task": "Bent pusė komandos turi atsistoti ant rankų (kiti gali prilaikyti)",
+    "reward": 1
+  },
+  "31": {
+    "id": 31,
+    "name": "Mission objective: Aistė",
+    "diff": "1",
+    "person": 0,
+    "task": "Išvardinkit 15 Marvel filmų iš atminties",
+    "reward": 1
+  },
+  "32": {
+    "id": 32,
+    "name": "Mission objective: Aistė",
+    "diff": "1",
+    "person": 0,
+    "task": "Komandos nariams susikibus už parankių į išorę, kiekvienas narys paeiliui turi ant buteliuko, kuris yra atsuktas, uždėti kamuoliuką",
+    "reward": 1
+  },
+  "33": {
+    "id": 33,
+    "name": "Mission objective: Akvilė",
+    "diff": "1",
+    "person": 0,
+    "task": "Pasakykit ketureilį su duotu žodžiu",
+    "reward": 1
+  },
+  "34": {
+    "id": 34,
+    "name": "Mission objective: Danielius",
+    "diff": "1",
+    "person": 0,
+    "task": "Įkalbinkit Danielių kartu pašokti Macaren'ą",
+    "reward": 1
+  },
+  "35": {
+    "id": 35,
+    "name": "Mission objective: Danielius",
+    "diff": "1",
+    "person": 0,
+    "task": "Visa komanda iš vieno aukšto į kitą aukštą užlipti žąsele",
+    "reward": 1
+  },
+  "36": {
+    "id": 36,
+    "name": "Mission objective: Danielius",
+    "diff": "1",
+    "person": 0,
+    "task": "Vienas komandos narys turi padaryti kregždutę (atsistoti ant vienos kojos pasilenkti ir išskėsti rankas į šonus) ir atsistoti ant pirštų galų",
+    "reward": 1
+  },
+  "37": { // repeat of 36
+    "id": 37,
+    "name": "Mission objective: Danielius",
+    "diff": "1",
+    "person": 0,
+    "task": "Vienas komandos narys turi padaryti kregždutę (atsistoti ant vienos kojos pasilenkti ir išskėsti rankas į šonus) ir atsistoti ant pirštų galų",
+    "reward": 1
+  },
+  "38": {
+    "id": 38,
+    "name": "Mission objective: Mėta",
+    "diff": "1",
+    "person": 0,
+    "task": "Papasakokit anekdotą Mėtai",
+    "reward": 1
+  },
+  "39": {
+    "id": 39,
+    "name": "Mission objective: Mėta",
+    "diff": "1",
+    "person": 0,
+    "task": "Sušokti vieną MIF šokį",
+    "reward": 1
+  },
+  "40": {
+    "id": 40,
+    "name": "Mission objective: Ovidijus",
+    "diff": "1",
+    "person": 0,
+    "task": "Raskit Ovidijų ir pasiūlykit jam tris LINKSMAS dainas",
+    "reward": 1
+  },
+  "41": {
+    "id": 41,
+    "name": "Mission objective: Monika",
+    "diff": "1",
+    "person": 0,
+    "task": "Prajuokinkit Moniką",
+    "reward": 1
+  },
+  "42": {
+    "id": 42,
+    "name": "Mission objective: Monika",
+    "diff": "1",
+    "person": 0,
+    "task": "Plojimais, trepsėjimu ir pan. sukurti ritmą ir jį atlikti organizatoriui",
+    "reward": 1
+  },
+  "43": {
+    "id": 43,
+    "name": "Mission objective: Monika",
+    "diff": "1",
+    "person": 0,
+    "task": "Nufotografuoti visų komandos narių telefonų ekranus, kuriuose rodoma, kad visi seka  VU SA MIF instagramą",
+    "reward": 1
+  },
+  "44": {
+    "id": 44,
+    "name": "Mission objective: Gabriekė K.",
+    "diff": "1",
+    "person": 0,
+    "task": "Pasakykit du pick-up lines Gabrielei",
+    "reward": 1
+  },
+  "45": {
+    "id": 45,
+    "name": "Mission objective: Vygintas",
+    "diff": "1",
+    "person": 0,
+    "task": "Atspėti ir Vygintui pasakyti, kas yra vyriausias MIF'o pirmakursis",
+    "reward": 1
+  },
+  "46": {
+    "id": 46,
+    "name": "Mission objective: Gabija L.",
+    "diff": "1",
+    "person": 0,
+    "task": "Per 7 sek. išvardinkit visas skirtingas šachmatų figūrėles",
+    "reward": 1
+  },
+  "47": {
+    "id": 47,
+    "name": "Mission objective: Gabija L.",
+    "diff": "1",
+    "person": 0,
+    "task": "Sudarykit labiausiai MIF sielą atspindintį Spotify grojaraštį ir parodyti Gabijai",
+    "reward": 1
+  },
+  "48": {
+    "id": 48,
+    "name": "Mission objective: Gabija A.",
+    "diff": "1",
+    "person": 0,
+    "task": "Sudėlioti dėlionę, kurioje pavaizduotas kažkas susijęs su MIF",
+    "reward": 1
+  },
+  "49": {
+    "id": 49,
+    "name": "Mission objective: Gabija A.",
+    "diff": "1",
+    "person": 0,
+    "task": "Bent pusė komandos narių turi pasidaryti naujas šukuosenas (Parodyti prieš ir po nuotraukas)",
+    "reward": 1
+  },
+  "50": {
+    "id": 50,
+    "name": "Mission objective: Gabija A.",
+    "diff": "1",
+    "person": 0,
+    "task": "Visa komandą turi sudainuoti dainą iš filmo/filmuko Gabijai, o ji turi atspėti koks čia filmas/filmukas",
+    "reward": 1
+  },
+  "51": {
+    "id": 51,
+    "name": "Mission objective: bet kuris organizatorius",
+    "diff": "1",
+    "person": 0,
+    "task": "Nufotografuoti Organizatorių, jam nematant ir parodyti jam",
+    "reward": 1
+  },
+  "52": {
+    "id": 52,
+    "name": "Mission objective: bet kuris organizatorius",
+    "diff": "1",
+    "person": 0,
+    "task": "Sugalvoti kaip ir apgauti organizatorių",
+    "reward": 1
+  },
+  "53": {
+    "id": 53,
+    "name": "Mission objective: bet kuris organizatorius",
+    "diff": "1",
+    "person": 0,
+    "task": "Visai komandai garsiai sušukti „MIDI geriau nei FIDI“",
+    "reward": 1
+  },
+  "54": {
+    "id": 54,
+    "name": "Mission objective: bet kuris organizatorius",
+    "diff": "1",
+    "person": 0,
+    "task": "Paduok puodelį vandens organizatoriui",
+    "reward": 1
+  },
+  "55": {
+    "id": 55,
+    "name": "Mission objective: bet kuris organizatorius",
+    "diff": "1",
+    "person": 0,
+    "task": "Surasti organizatorių kuris nerūko",
+    "reward": 1
+  },
+  "56": {
+    "id": 56,
+    "name": "Mission objective: bet kuris organizatorius",
+    "diff": "1",
+    "person": 0,
+    "task": "Sugalvoti originalų komandos šūkį ir garsiai jį sušukti",
+    "reward": 1
+  },
+  "57": {
+    "id": 57,
+    "name": "Mission objective: foto į Discord",
+    "diff": "1",
+    "person": 0,
+    "task": "Visai komandai nusipiešti katės ūsus ir nosytes ant veido ir įkelti nuotrauką į discord",
+    "reward": 1
+  },
+  "58": {
+    "id": 58,
+    "name": "Mission objective: foto į Discord",
+    "diff": "1",
+    "person": 0,
+    "task": "Visai komandai nusifotografuoti su kita komanda ir nuotrauką įkelti į discord",
+    "reward": 1
+  },
+  "59": {
+    "id": 59,
+    "name": "Mission objective: foto į Discord",
+    "diff": "1",
+    "person": 0,
+    "task": "Iš komandos narių sudėti MIDI logotipą, nufotografuoti ir įkelti į discord",
+    "reward": 1
+  },
+  "60": {
+    "id": 60,
+    "name": "Mission objective: foto į Discord",
+    "diff": "1",
+    "person": 0,
+    "task": "Padaryti ir įkelti į discord komandos nuotrauką, kurioje kiekvienas narys veido išraiška rodo skirtingą emoji",
+    "reward": 1
+  },
+  "61": {
+    "id": 61,
+    "name": "Mission objective: foto į Discord",
+    "diff": "1",
+    "person": 0,
+    "task": "Surasti ir nusifotografuoti prie baseino įėjimo, nuotrauką įkelti į discord",
+    "reward": 1
+  },
+  "62": {
+    "id": 62,
+    "name": "Mission objective: foto į Discord",
+    "diff": "1",
+    "person": 0,
+    "task": "Sukurti mįslę apie katiną",
+    "reward": 1
+  },
+  "63": {
+    "id": 63,
+    "name": "Mission objective: Vytenis",
+    "diff": "2",
+    "person": 0,
+    "task": "Parodykit Vyteniui įdomų daiktą",
+    "reward": 2
+  },
+  "64": {
+    "id": 64,
+    "name": "Mission objective: Vytenis",
+    "diff": "2",
+    "person": 0,
+    "task": "Laimeti stalo futbolo žaidimą prieš Vytenį",
+    "reward": 2
+  },
+  "65": {
+    "id": 65,
+    "name": "Mission objective: Vytenis",
+    "diff": "2",
+    "person": 0,
+    "task": "Komandiškai išbūti kėdute 2 minutes",
+    "reward": 2
+  },
+  "66": {
+    "id": 66,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "2",
+    "person": 0,
+    "task": "Šarados - trys žodžiai iš Gabrielės",
+    "reward": 2
+  },
+  "67": {
+    "id": 67,
+    "name": "Mission objective: Eglė",
+    "diff": "2",
+    "person": 0,
+    "task": "Eglei pristatykit 4 žmones su tokiais pačiais vardais",
+    "reward": 2
+  },
+  "68": {
+    "id": 68,
+    "name": "Mission objective: Eglė",
+    "diff": "2",
+    "person": 0,
+    "task": "Surasti studentą iš kito fakulteto ir pristatyti organizatoriui",
+    "reward": 2
+  },
+  "69": {
+    "id": 69,
+    "name": "Mission objective: Vaiva",
+    "diff": "2",
+    "person": 0,
+    "task": "Laimėti rock paper scissors prieš Vaivą 5 kartus iš eilės",
+    "reward": 2
+  },
+  "70": {
+    "id": 70,
+    "name": "Mission objective: Vaiva",
+    "diff": "2",
+    "person": 0,
+    "task": "Susikabinus rankomis su komandos nariais, persiųsti lanką nuo pirmo iki paskutinio žmogaus (per nustatytą laiką)",
+    "reward": 2
+  },
+  "71": {
+    "id": 71,
+    "name": "Mission objective: Vaiva",
+    "diff": "2",
+    "person": 0,
+    "task": "Su kitos komandos atstovu/atstove sužaisti rock paper scissors, taškus gauna laimėjusi komanda",
+    "reward": 2
+  },
+  "72": {
+    "id": 72,
+    "name": "Mission objective: Barbora",
+    "diff": "2",
+    "person": 0,
+    "task": "Visa komanda turi padaryti žmonių statulą",
+    "reward": 2
+  },
+  "73": {
+    "id": 73,
+    "name": "Mission objective: Barbora",
+    "diff": "2",
+    "person": 0,
+    "task": "Vieni kitiems nupieškite tatuiruotes",
+    "reward": 2
+  },
+  "74": {
+    "id": 74,
+    "name": "Mission objective: Rokas",
+    "diff": "2",
+    "person": 0,
+    "task": "Atspėkit žodį iš N raidės",
+    "reward": 2
+  },
+  "75": {
+    "id": 75,
+    "name": "Mission objective: Rokas",
+    "diff": "2",
+    "person": 0,
+    "task": "Padarykit kuo aukštesnį bokštą iš aplinkiniu daiktų",
+    "reward": 2
+  },
+  "76": {
+    "id": 76,
+    "name": "Mission objective: Ugnė B.",
+    "diff": "2",
+    "person": 0,
+    "task": "10 komandinių pritūpimų/atsilenkimų",
+    "reward": 2
+  },
+  "77": {
+    "id": 77,
+    "name": "Mission objective: Ugnė B.",
+    "diff": "2",
+    "person": 0,
+    "task": "Komanda turi 90 sekundžių išstovėti ant vienos kojos užsimerkę",
+    "reward": 2
+  },
+  "78": {
+    "id": 78,
+    "name": "Mission objective: Simona U.",
+    "diff": "2",
+    "person": 0,
+    "task": "Suskaičiuokit, kiek Didlaukio pastate yra auditorijų",
+    "reward": 2
+  },
+  "79": {
+    "id": 79,
+    "name": "Mission objective: Simona U.",
+    "diff": "2",
+    "person": 0,
+    "task": "Nugalėti 3 kitos komandos atstovus rankos lenkime",
+    "reward": 2
+  },
+  "80": {
+    "id": 80,
+    "name": "Mission objective: Aistė",
+    "diff": "2",
+    "person": 0,
+    "task": "Vieną iš komandos narių reikia pernešti laikant jį ore, kol jis “skrenda kaip supermenas”",
+    "reward": 2
+  },
+  "81": {
+    "id": 81,
+    "name": "Mission objective: Aistė",
+    "diff": "2",
+    "person": 0,
+    "task": "Dainuojant dainą „Du gaideliai“, vaidinti dainos siužetą",
+    "reward": 2
+  },
+  "82": {
+    "id": 82,
+    "name": "Mission objective: Aistė",
+    "diff": "2",
+    "person": 0,
+    "task": "Išspręsti sudoku",
+    "reward": 2
+  },
+  "83": {
+    "id": 83,
+    "name": "Mission objective: Danielius",
+    "diff": "2",
+    "person": 0,
+    "task": "Išvardinkit dabartinio biuro narius",
+    "reward": 2
+  },
+  "84": {
+    "id": 84,
+    "name": "Mission objective: Danielius",
+    "diff": "2",
+    "person": 0,
+    "task": "Pusė komandos turi kitą pusę pernešti iš vieno koridoriaus galo į kitą",
+    "reward": 2
+  },
+  "85": {
+    "id": 85,
+    "name": "Mission objective: Danielius",
+    "diff": "2",
+    "person": 0,
+    "task": "Visi komandos nariai turi 45 sekundes daryti lentą",
+    "reward": 2
+  },
+  "86": {
+    "id": 86,
+    "name": "Mission objective: Danielius",
+    "diff": "2",
+    "person": 0,
+    "task": "Visi komandos nariai turi pagauti monetą, mestą nuo tos pačios alkūnės",
+    "reward": 2
+  },
+  "87": {
+    "id": 87,
+    "name": "Mission objective: Danielius",
+    "diff": "2",
+    "person": 0,
+    "task": "Kiekvienas komandos narys turi padaryti skirtingą jogos pozą",
+    "reward": 2
+  },
+  "88": {
+    "id": 88,
+    "name": "Mission objective: Mėta",
+    "diff": "2",
+    "person": 0,
+    "task": "Mėtai paaiškinti kodėl DCEU > MCU",
+    "reward": 2
+  },
+  "89": {
+    "id": 89,
+    "name": "Mission objective: Ovidijus",
+    "diff": "2",
+    "person": 0,
+    "task": "Ant lapo sukurti kodą, kuris išrašytų daugybos lentelę (iki 10x10) ir duoti patikrinti Ovidijui",
+    "reward": 2
+  },
+  "90": {
+    "id": 90,
+    "name": "Mission objective: Eidvilė",
+    "diff": "2",
+    "person": 0,
+    "task": "Sukurkit kostiumą duota tema per 2 minutes",
+    "reward": 2
+  },
+  "91": {
+    "id": 91,
+    "name": "Mission objective: Eidvilė",
+    "diff": "2",
+    "person": 0,
+    "task": "Nupieškit komandos nario portretą su burna",
+    "reward": 2
+  },
+  "92": {
+    "id": 92,
+    "name": "Mission objective: Monika",
+    "diff": "2",
+    "person": 0,
+    "task": "Iš visos širdies sudainuoti 3 milijonus",
+    "reward": 2
+  },
+  "93": {
+    "id": 93,
+    "name": "Mission objective: Monika",
+    "diff": "2",
+    "person": 0,
+    "task": "Nusifotografuoti su kiekvienu šio renginio srities vadovu ir parodyti Monikai",
+    "reward": 2
+  },
+  "94": {
+    "id": 94,
+    "name": "Mission objective: Lukas",
+    "diff": "2",
+    "person": 0,
+    "task": "Komandai sudainuoti MIDI himną",
+    "reward": 2
+  },
+  "95": {
+    "id": 95,
+    "name": "Mission objective: Vygintas",
+    "diff": "2",
+    "person": 0,
+    "task": "Organizatoriui išvardinti 20 pi skaitmenų po kablelio be telefono",
+    "reward": 2
+  },
+  "96": {
+    "id": 96,
+    "name": "Mission objective: Vygintas",
+    "diff": "2",
+    "person": 0,
+    "task": "Beer pong'as be alkoholio. Kiekvienas komandos narys meta kamuoliuką lygiai vieną kartą, ir jei nors puse komandos narių pataiko, užduotis įvykdyta",
+    "reward": 2
+  },
+  "97": {
+    "id": 97,
+    "name": "Mission objective: Vygintas",
+    "diff": "2",
+    "person": 0,
+    "task": "Perduoti kamuoliuką tik su šaukštais stovint eilute",
+    "reward": 2
+  },
+  "98": {
+    "id": 98,
+    "name": "Mission objective: Vygintas",
+    "diff": "2",
+    "person": 0,
+    "task": "Vygintui pristatyti 10 žmonių iš skirtingų miestų",
+    "reward": 2
+  },
+  "99": {
+    "id": 99,
+    "name": "Mission objective: Gabija L.",
+    "diff": "2",
+    "person": 0,
+    "task": "Papasakokit duoto filmo siužetą po vieną sakinį. Vienas komandos narys pasako vieną sakinį - po to kitas",
+    "reward": 2
+  },
+  "100": {
+    "id": 100,
+    "name": "Mission objective: Gabija A.",
+    "diff": "2",
+    "person": 0,
+    "task": "Išspręsti kryžiažodį",
+    "reward": 2
+  },
+  "101": {
+    "id": 101,
+    "name": "Mission objective: Gabija A.",
+    "diff": "2",
+    "person": 0,
+    "task": "Fakultete surasti ir nufotografuoti visos vaivorykštės spalvų daiktus",
+    "reward": 2
+  },
+  "102": {
+    "id": 102,
+    "name": "Mission objective: Gabija A.",
+    "diff": "2",
+    "person": 0,
+    "task": "Bent pusė komandos narių turi specialiai apsiverkti, išspausti bent vieną ašarą",
+    "reward": 2
+  },
+  "103": {
+    "id": 103,
+    "name": "Mission objective: Ieva Marija",
+    "diff": "2",
+    "person": 0,
+    "task": "Sugalvoti plana kaip pavogti dinozaurą nuo fizikų stogo ir pristatyti Ievai Marijai",
+    "reward": 2
+  },
+  "104": {
+    "id": 104,
+    "name": "Mission objective: Ieva Marija",
+    "diff": "2",
+    "person": 0,
+    "task": "Kiekvienas komandos narys turi pasakyti Ievai Marijai, kodėl gaidelio sausainiai yra patys geriausi",
+    "reward": 2
+  },
+  "105": {
+    "id": 105,
+    "name": "Mission objective: foto į Discord",
+    "diff": "2",
+    "person": 0,
+    "task": "Nufilmuokit kaip vienas iš komandos nariu daro a flip (galima padėti) ir įkelkit į discord",
+    "reward": 2
+  },
+  "106": {
+    "id": 106,
+    "name": "Mission objective: foto į Discord",
+    "diff": "2",
+    "person": 0,
+    "task": "Komandos atstovui nusifotografuoti su laukiniu katinu kur nors Didlaukio teritorijoje ir įkelti nuotrauką į discord",
+    "reward": 2
+  },
+  "107": {
+    "id": 107,
+    "name": "Mission objective: foto į Discord",
+    "diff": "2",
+    "person": 0,
+    "task": "Sukonstruoti katiną, naudojantis žmonėmis, nufotografuoti ir įkelti į discord",
+    "reward": 2
+  },
+  "108": {
+    "id": 108,
+    "name": "Mission objective: foto į Discord",
+    "diff": "2",
+    "person": 0,
+    "task": "Komanda turi Didlaukio teritorijoje surasti ir pasidaryti nuotrauką su Miciaus mašina, ją įkelti į discord",
+    "reward": 2
+  },
+  "109": {
+    "id": 109,
+    "name": "Mission objective: foto į Discord",
+    "diff": "2",
+    "person": 0,
+    "task": "Pastatyti piramidę iš komandos narių, nufotografuoti ir įkelti į discord",
+    "reward": 2
+  },
+  "110": {
+    "id": 110,
+    "name": "Mission objective: foto į Discord",
+    "diff": "2",
+    "person": 0,
+    "task": "Iš grupėje turimų augintinių nuotraukų padaryti koliažą tema “Miciaus draugai” ir įkelti į discord",
+    "reward": 2
+  },
+  "111": {
+    "id": 111,
+    "name": "Mission objective: Vytenis",
+    "diff": "3",
+    "person": 0,
+    "task": "Nugalėk Vytenį Tetris žaidime",
+    "reward": 3
+  },
+  "112": {
+    "id": 112,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "3",
+    "person": 0,
+    "task": "Suvalgyti 4 gaidelius per minutę neužsigeriant",
+    "reward": 3
+  },
+  "113": {
+    "id": 113,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "3",
+    "person": 0,
+    "task": "Išsiaiškinkit mystery kodą",
+    "reward": 3
+  },
+  "114": {
+    "id": 114,
+    "name": "Mission objective: Barbora",
+    "diff": "3",
+    "person": 0,
+    "task": "Laimėkit šokių dvikovoje prieš kitą komandą",
+    "reward": 3
+  },
+  "115": {
+    "id": 115,
+    "name": "Mission objective: Barbora",
+    "diff": "3",
+    "person": 0,
+    "task": "Kiekvienam komandos nariui reikia prisistatyti skirtinga kalba",
+    "reward": 3
+  },
+  "116": {
+    "id": 116,
+    "name": "Mission objective: Ugnė M.",
+    "diff": "3",
+    "person": 0,
+    "task": "Išspręsti du loginius uždavinius, kol Ugnė palaiko spaudimą",
+    "reward": 3
+  },
+  "117": {
+    "id": 117,
+    "name": "Mission objective: Aistė",
+    "diff": "3",
+    "person": 0,
+    "task": "Ant lapo, kuris yra ant kito komandos nario nugaros, kažką nupiešti ir tas komandos narys turi atspėti",
+    "reward": 3
+  },
+  "118": {
+    "id": 118,
+    "name": "Mission objective: Ovidijus",
+    "diff": "3",
+    "person": 0,
+    "task": "Įrodykit Ovidijui kodėl assembler yra geriausia visų laikų programavimo kalba",
+    "reward": 3
+  },
+  "119": {
+    "id": 119,
+    "name": "Mission objective: Eidvilė",
+    "diff": "3",
+    "person": 0,
+    "task": "Komandos atstovas turi apsirengti kuo daugiau sluoksnių drabužių",
+    "reward": 3
+  },
+  "120": {
+    "id": 120,
+    "name": "Mission objective: Gustas",
+    "diff": "3",
+    "person": 0,
+    "task": "Nugalėti Gustą žaidime Typeracer",
+    "reward": 3
+  },
+  "121": {
+    "id": 121,
+    "name": "Mission objective: Vygintas",
+    "diff": "3",
+    "person": 0,
+    "task": "Raskite ir Vygintui pristatykite 2 žmones gimusius vienos dienos skirtumu (back to back dienomis) (pvz. spalio 14 d. ir spalio 15 d.)",
+    "reward": 3
+  },
+  "122": {
+    "id": 122,
+    "name": "Mission objective: Gabija L.",
+    "diff": "3",
+    "person": 0,
+    "task": "Parodykit magijos triuką",
+    "reward": 3
+  },
+  "123": {
+    "id": 123,
+    "name": "Mission objective: Gabija L.",
+    "diff": "3",
+    "person": 0,
+    "task": "Raskit ir Gabijai pristatykit 5 žmones gimusius skirtingais metais",
+    "reward": 3
+  },
+  "124": {
+    "id": 124,
+    "name": "Mission objective: Gabija B.",
+    "diff": "3",
+    "person": 0,
+    "task": "Paklausti Gabijos kelintais metais buvo pradėtos MIDI ir įrodyti, kad ji neteisi",
+    "reward": 3
+  },
+  "125": {
+    "id": 125,
+    "name": "Mission objective: bet kuris organizatorius",
+    "diff": "3",
+    "person": 0,
+    "task": "Rasti organizatorių, auginantį šunį, ir įrodyti, jog katinai yra geriau",
+    "reward": 3
+  },
+  "126": {
+    "id": 126,
+    "name": "Mission objective: bet kuris organizatorius",
+    "diff": "3",
+    "person": 0,
+    "task": "Įkalbinti organizatorių su visa komanda sušokti Tunaką",
+    "reward": 3
+  },
+  "127": {
+    "id": 127,
+    "name": "Mission objective: foto į Discord",
+    "diff": "3",
+    "person": 0,
+    "task": "Padarykit juokingiausią memą ir įkelti į discord",
+    "reward": 3
+  },
+  "128": {
+    "id": 128,
+    "name": "Mission objective: foto į Discord",
+    "diff": "3",
+    "person": 0,
+    "task": "Parašykit į discord originalų komplimentą ir padėką renginio organizatoriams",
+    "reward": 3
+  },
+  "129": {
+    "id": 129,
+    "name": "Mission objective: foto į Discord",
+    "diff": "3",
+    "person": null,
+    "task": "Nufilmuokit iki 2 minučių trukmės “žinių reportažą” apie renginį “Atgal į kateitį” ir įkelti į discord",
+    "reward": 3
+  },
+  "130": {
+    "id": 130,
+    "name": "Mission objective: foto į Discord",
+    "diff": "3",
+    "person": null,
+    "task": "Nupieškit Micių ir nuotrauką įkelkit į discord,, geriausią piešinį išrinksime konkurso pabaigoje",
+    "reward": 3
+  },
+  "131": {
+    "id": 131,
+    "name": "Mission objective: ???",
+    "diff": "3",
+    "person": null,
+    "task": "Fakultete paslėptas lobis, užuomina: QR",
+    "reward": 3
+  },
+  "132": {
+    "id": 132,
+    "name": "Mission objective: ???",
+    "diff": "3",
+    "person": null,
+    "task": "Susigrąžinti Miciaus galvą iš fizikų",
+    "reward": 100000
+  }
+}

@@ -4,8 +4,8 @@ class Mission:
         self.diff = 0
 
 class Team:
-    def __init__(self):
-        self.name = "NULL"
+    def __init__(self, name):
+        self.name = name
         self.easyMissions = [0]
         self.mediumMissions = [0]
         self.hardMissions = [0]
