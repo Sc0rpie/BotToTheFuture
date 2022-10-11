@@ -1,0 +1,74 @@
+{
+  "1": {
+    "id": 1,
+    "name": "Mission objective: Vytenis",
+    "diff": "1",
+    "person": null, // cia bus orgo UID
+    "task": "Komandos atstovas turi paglostyti Vytenio galvą",
+    "reward": 1
+  },
+  "2": {
+    "id": 2,
+    "name": "Mission objective: Vytenis",
+    "diff": "1",
+    "person": null, // cia bus orgo UID
+    "task": "Mystery box",
+    "reward": 1
+  },
+  "3": {
+    "id": 3,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "1",
+    "person": null, // cia bus orgo UID
+    "task": "Dviejų lyčių atstovai apsikeičia rūbais",
+    "reward": 1
+  },
+  "4": {
+    "id": 4,
+    "name": "Mission objective: Vytenis",
+    "diff": "2",
+    "person": null, // cia bus orgo UID
+    "task": "Parodykit Vyteniui įdomų daiktą",
+    "reward": 3
+  },
+  "5": {
+    "id": 5,
+    "name": "Mission objective: Vytenis",
+    "diff": "2",
+    "person": null, // cia bus orgo UID
+    "task": "Laimeti stalo futbolo žaidimą prieš Vytenį",
+    "reward": 3
+  },
+  "6": {
+    "id": 6,
+    "name": "Mission objective: Vytenis",
+    "diff": "2",
+    "person": null, // cia bus orgo UID
+    "task": "Komandiškai išbūti kėdute 2 minutes",
+    "reward": 3
+  },
+  "7": {
+    "id": 7,
+    "name": "Mission objective: Vytenis",
+    "diff": "3",
+    "person": null, // cia bus orgo UID
+    "task": "Nugalėk Vytenį Tetris žaidime",
+    "reward": 5
+  },
+  "8": {
+    "id": 8,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "3",
+    "person": null, // cia bus orgo UID
+    "task": "Suvalgyti 4 gaidelius per minutę neužsigeriant",
+    "reward": 5
+  },
+  "9": {
+    "id": 9,
+    "name": "Mission objective: Gabrielė D.",
+    "diff": "3",
+    "person": null, // cia bus orgo UID
+    "task": "Išsiaiškinkit mystery kodą",
+    "reward": 5
+  }
+}
