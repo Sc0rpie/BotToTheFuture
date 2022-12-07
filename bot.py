@@ -1,12 +1,3 @@
-from glob import glob
-from http import client
-from logging import RootLogger
-from re import A
-from venv import create
-# import discord
-# from discord.utils import *
-# from discord.ext import commands
-import random
 import functions
 
 import os
@@ -28,16 +19,19 @@ intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='',
                    description=description, intents=intents)
 
-start = False
+start = True
 # Predefined channel ID's
 REGISTER_CHANNEL = 1026562999508545558
 ADMIN_CHANNEL = 1028015282553360455
 CRIB_CHANNEL = 1028015345291771934
 HELP_CHANNEL = 1028015404032987216
+INFO_CHANNEL = 1030179986264559717
+ADMININFO_CHANNEL = 1030118347955765378
 # Main server admin
 me = 168687487743557632
 
 # Role ID's
+ADMIN_ID = 1029148212923215912
 PARTICIPANT_ID = 1028015588301344940
 HELPER_ID = 1028015634837143623
 BOT_ID = 1026563432054530173
@@ -46,7 +40,7 @@ command_list = ["points", "easy", "medium", "hard", "end", "help", "lead", "skip
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
-    print('Pachdon bot v0.1 up and running')
+    print('Pachdon bot v1.0 up and running')
     print('------'*10)
 
 @bot.event
@@ -56,7 +50,7 @@ async def on_message(ctx: discord.Message):
         author = ctx.author
         content = ctx.content.lower()
         channel = ctx.channel
-        print(author.name + " " + content)
+        print(channel.name + " " + author.name + " " + content)
         data = content.split(" ")
         command = data[0]
         data = data[1:]
@@ -92,6 +86,7 @@ async def on_message(ctx: discord.Message):
                         role = get(ctx.guild.roles, name=data.lower())
                         if role:
                             await author.add_roles(role)
+                            await channel.send("You have successfully joined: " + str(data))
                     elif result:
                         await channel.send("It seems like the crib is full")
                 else:
@@ -124,7 +119,7 @@ async def on_message(ctx: discord.Message):
                 result = tasks.get_task(crib.currentEasyTask)
                 await channel.send(embed = result)
             else:
-                await channel.send("You have completed all of your hard tasks!")
+                await channel.send("You have completed all of your easy tasks!")
 
         elif command == "medium" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
@@ -132,7 +127,7 @@ async def on_message(ctx: discord.Message):
                 result = tasks.get_task(crib.currentMediumTask)
                 await channel.send(embed = result)
             else:
-                await channel.send("You have completed all of your hard tasks!")
+                await channel.send("You have completed all of your medium tasks!")
 
         elif command == "hard" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
@@ -155,7 +150,7 @@ async def on_message(ctx: discord.Message):
 
         elif command == "skipeasy" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.easyAmt == 61:
+            if crib.easyAmt == 60:
                 await channel.send("Objective can not be skipped. This is the last one")
             else:
                 result = tasks.skip_task(str(channel.id), 1)
@@ -173,7 +168,7 @@ async def on_message(ctx: discord.Message):
         
         elif command == "skiphard" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.hardAmt == 21:
+            if crib.hardAmt == 22:
                 await channel.send("Objective can not be skipped. This is the last one")
             else:
                 result = tasks.skip_task(str(channel.id), 3)
@@ -182,45 +177,63 @@ async def on_message(ctx: discord.Message):
 
         elif command == "done1" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             # if data == '1':
-                role = get(ctx.guild.roles, name=ctx.channel.name)
-                if ctx.author.id == me:
+                role = get(ctx.guild.roles, id=ADMIN_ID)
+                if role in ctx.author.roles or ctx.author.id == me:
                     result = tasks.org_give_points(str(author.id), str(channel.id), True, 1)
-                else:
-                    result = tasks.org_give_points(str(author.id), str(channel.id), False, 1)
-                if result:
-                    await channel.send(result)
-                    crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
-                    if crib.easyAmt != 3:
-                        result = tasks.get_task(crib.currentEasyTask)
+                    if result:
                         await channel.send(embed=result)
+                        crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
+                        if crib.easyAmt != 61:
+                            nextTask = discord.Embed(title="Your next task is:")
+                            await channel.send(embed=nextTask)
+                            result = tasks.get_task(crib.currentEasyTask)
+                            await channel.send(embed=result)
+                else:
+                    await channel.send("Pachdon comrade, but you're not able to use this command")# result = tasks.org_give_points(str(author.id), str(channel.id), False, 1)
+                
+                    # if crib.easyAmt != 61:
+                    #     result = tasks.get_task(crib.currentEasyTask)
+                    #     await channel.send(embed=result)
 
         elif command == "done2" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             # if data == '1':
-                role = get(ctx.guild.roles, name=ctx.channel.name)
-                if ctx.author.id == me:
+                # role = get(ctx.guild.roles, name=ctx.channel.name)
+                role = get(ctx.guild.roles, id=ADMIN_ID)
+                if role in ctx.author.roles or ctx.author.id == me:
                     result = tasks.org_give_points(str(author.id), str(channel.id), True, 2)
-                else:
-                    result = tasks.org_give_points(str(author.id), str(channel.id), False, 2)
-                if result:
-                    await channel.send(result)
-                    crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
-                    if crib.mediumAmt != 3:
-                        result = tasks.get_task(crib.currentMediumTask)
+                    if result:
                         await channel.send(embed=result)
+                        crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
+                        if crib.mediumAmt != 48:
+                            nextTask = discord.Embed(title="Your next task is:")
+                            await channel.send(embed=nextTask)
+                            result = tasks.get_task(crib.currentMediumTask)
+                            await channel.send(embed=result)
+                else:
+                    await channel.send("Pachdon comrade, but you're not able to use this command")
+                    # if crib.mediumAmt != 48:
+                    #     result = tasks.get_task(crib.currentMediumTask)
+                    #     await channel.send(embed=result)
 
         elif command == "done3" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             # if data == '1':
-                role = get(ctx.guild.roles, name=ctx.channel.name)
-                if ctx.author.id == me:
+                # role = get(ctx.guild.roles, name=ctx.channel.name)
+                role = get(ctx.guild.roles, id=ADMIN_ID)
+                if role in ctx.author.roles or ctx.author.id == me:
                     result = tasks.org_give_points(str(author.id), str(channel.id), True, 3)
-                else:
-                    result = tasks.org_give_points(str(author.id), str(channel.id), False, 3)
-                if result:
-                    await channel.send(result)
-                    crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
-                    if crib.hardAmt != 3:
-                        result = tasks.get_task(crib.currentHardTask)
+                    if result:
                         await channel.send(embed=result)
+                        crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
+                        if crib.hardAmt != 23:
+                            nextTask = discord.Embed(title="Your next task is:")
+                            await channel.send(embed=nextTask)
+                            result = tasks.get_task(crib.currentHardTask)
+                            await channel.send(embed=result)
+                else:
+                    await channel.send("Pachdon comrade, but you're not able to use this command")
+                    # if crib.hardAmt != 23:
+                    #     result = tasks.get_task(crib.currentHardTask)
+                    #     await channel.send(embed=result)
 
         elif command == "end":
             if author.id == me:
@@ -230,121 +243,53 @@ async def on_message(ctx: discord.Message):
             else:
                 sub_channel = get(ctx.guild.channels, id=HELP_CHANNEL)
                 await sub_channel.send("<@" + str(me) + "> o kitten want to end the game - <#" + str(channel.id) + ">")
+        
+        elif command == "info" and channel.id == INFO_CHANNEL:
+            await ctx.delete()
+            commandInfo = discord.Embed(title="help", description=":flag_lt:Iškviečia organizatorių\n:flag_gb:Calls the organizer")
+            await channel.send(embed=commandInfo)
+            commandInfo = discord.Embed(title="create", description=":flag_lt:Sukuria komandą su atsitiktiniu pavadinimu (1 žmogus gali sukurti 1 komandą)\n:flag_gb:Creates a team with a random name (1 team per person)")
+            await channel.send(embed=commandInfo)
+            commandInfo = discord.Embed(title="join <team name>", description=":flag_lt:Leidžia prisijungti prie jau sukurtos komandos (iki 6 žmonių komandoje)\n:flag_gb:Allows to join an existing team (max 6 people per team)")
+            await channel.send(embed=commandInfo)
+            commandInfo = discord.Embed(title="easy", description=":flag_lt:Parodo lengvą užduotį\n:flag_gb:Shows an easy difficulty mission")
+            await channel.send(embed=commandInfo)
+            commandInfo = discord.Embed(title="medium", description=":flag_lt:Parodo vidutinio sunkumo užduotį\n:flag_gb:Shows a medium difficulty mission")
+            await channel.send(embed=commandInfo)
+            commandInfo = discord.Embed(title="hard", description=":flag_lt:Parodo sunkią užduotį\n:flag_gb:Shows a hard difficulty mission")
+            await channel.send(embed=commandInfo)
+            commandInfo = discord.Embed(title="skipeasy", description=":flag_lt:Praleidžia lengvą užduotį (vėliau galima prie jos grįžti)\n:flag_gb:Skips an easy mission")
+            await channel.send(embed=commandInfo)
+            commandInfo = discord.Embed(title="skipmedium", description=":flag_lt:Praleidžia vidutinę užduotį (vėliau galima prie jos grįžti)\n:flag_gb:Skips a medium mission")
+            await channel.send(embed=commandInfo)
+            commandInfo = discord.Embed(title="skiphard", description=":flag_lt:Praleidžia sunkią užduotį (vėliau galima prie jos grįžti)\n:flag_gb:Skips a hard mission")
+            await channel.send(embed=commandInfo)
+        # elif command == "admininfo" and channel.id == ADMININFO_CHANNEL:
+        #     await ctx.delete()
+        #     commandInfo = discord.Embed(title="COMMAND LIST")
+        #     await channel.send(embed=commandInfo)
+        #     commandInfo = discord.Embed(title="done1", description=":flag_lt:Užbaigia easy užd.")
+        #     await channel.send(embed=commandInfo)
+        #     commandInfo = discord.Embed(title="done2", description=":flag_lt:Užbaigia medium užd.")
+        #     await channel.send(embed=commandInfo)
+        #     commandInfo = discord.Embed(title="done3", description=":flag_lt:Užbaigia hard užd.")
+        #     await channel.send(embed=commandInfo)
 
 
 async def create_guild(ctx, crib):
     guild = ctx.guild
     member = ctx.author
-    kittenrole = await guild.create_role(name=crib.lower(), colour = discord.Colour(0xff00ff))  
-    helper = get(ctx.guild.roles, id=HELPER_ID)
+    kittenrole = await guild.create_role(name=crib.lower(), colour = discord.Colour.random(), hoist = True)
+    # kittenrole.hoist = True  
+    # helper = get(ctx.guild.roles, id=HELPER_ID)
     await member.add_roles(kittenrole)
     overwrites = {
         guild.default_role: discord.PermissionOverwrite(read_messages = False),
-        kittenrole: discord.PermissionOverwrite(read_messages=True),
-        helper: discord.PermissionOverwrite(read_messages=True)
+        kittenrole: discord.PermissionOverwrite(read_messages=True)
+        # helper: discord.PermissionOverwrite(read_messages=True)
     }
     channel = await guild.create_text_channel(crib, overwrites=overwrites)
-    functions.create_guild(crib, str(member.id), channel.id)
+    await functions.create_guild(crib, str(member.id), channel.id)
     return True
-
-
-# @bot.command()
-# @commands.cooldown(1, 0.5, commands.BucketType.channel)
-# async def start(ctx):  # Let the chaos begin. ($start command for members to join a team)
-#     global a  # Team members
-#     # global teamNum  # Team number
-
-#     guild = ctx.guild
-#     user = ctx.message.author
-
-#     playingRole = discord.utils.get(user.guild.roles, name='Playing')
-#     if playingRole in user.roles:
-#         await ctx.message.delete()
-#         return
-#     else:
-#         await user.add_roles(playingRole)
-#         if ctx.channel.id != 1026528350891679754:  # Check if text channel is #bot. If not, error is thrown
-#             await ctx.send("PaChDoN huuh??")
-#             with open('huuh.png', 'rb') as fp:
-#                 await ctx.send(file=discord.File(fp, 'huuh.png'))
-#             return
-#         elif a == 0:
-#             a += 1
-#             global teamName
-#             teamName = randomTeamName()
-#             await guild.create_role(name=str(teamName))
-#             global role
-#             role = discord.utils.get(user.guild.roles, name=str(teamName))
-#             overwrites = discord.PermissionOverwrite()
-#             overwrites = {
-#                 guild.default_role: discord.PermissionOverwrite(view_channel=False),
-#                 role: discord.PermissionOverwrite(view_channel=True)
-#             }
-
-#             await guild.create_text_channel(str(teamName), overwrites=overwrites)
-#             print("User: " + user.name)
-#             print("Role name: " + role.name)
-#             print(" ")
-#         elif a == 2:
-#             a = 1
-#             guild = ctx.guild
-#             user = ctx.message.author
-#             teamName = randomTeamName()
-#             await guild.create_role(name=str(teamName))
-#             role = discord.utils.get(user.guild.roles, name=str(teamName))
-#             overwrites = discord.PermissionOverwrite()
-#             overwrites = {
-#                 guild.default_role: discord.PermissionOverwrite(view_channel=False),
-#                 role: discord.PermissionOverwrite(view_channel=True)
-#             }
-
-#             await guild.create_text_channel(str(teamName), overwrites=overwrites)
-#             await ctx.message.delete()  # Delete message to have a clean main channel
-#             print("User: " + user.name)
-#             print("Role name: " + role.name)
-#             print(" ")
-#         else:
-#             a += 1
-#             user = ctx.message.author
-#             # role = discord.utils.get(user.guild.roles, name = str(teamName))
-#             await ctx.message.delete()  # Delete message to have a clean main channel
-#             print("User: " + user.name)
-#             print("Role name: " + role.name)
-#             print(" ")
-#         await user.add_roles(role)
-#         await ctx.message.delete()  # Delete message to have a clean main channel
-
-
-# @bot.command()
-# # @commands.cooldown(1, 10800, commands.BucketType.user)
-# async def test(ctx):  # Team text channel and role creation test (each time $test is run, new role and channel is created)
-#     global a  # Team members
-#     global teamNum  # Team number
-
-#     if a == 0:
-#         guild = ctx.guild
-#         global user
-#         user = ctx.message.author
-#         teamName = randomTeamName()
-#         print(teamName)
-#         await guild.create_role(name=str(teamName))
-#         role = discord.utils.get(user.guild.roles, name=str(teamName))
-#         overwrites = discord.PermissionOverwrite()
-#         overwrites = {
-#             guild.default_role: discord.PermissionOverwrite(view_channel=False),
-#             role: discord.PermissionOverwrite(view_channel=True)
-#         }
-#         await guild.create_text_channel(str(teamName), overwrites=overwrites)
-#     await user.add_roles(role)
-
-
-# @start.error
-# async def helloworld_error(ctx, error):
-#     if isinstance(error, commands.CommandOnCooldown):
-#         await ctx.send(f'Command "start" is no longer available for you')
-#         # await ctx.send("PaChDoN huuh??")
-#         # with open('huuh.png', 'rb') as fp:
-#         #     await ctx.send(file=discord.File(fp, 'huuh.png'))
-
 
 bot.run(TOKEN)
