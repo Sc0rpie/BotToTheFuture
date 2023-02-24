@@ -1,3 +1,10 @@
+# Pachdon bot v1.0
+# Made for CatToTheFuture event of Vilnius University Mathematics and Informatics Faculty
+# This is the main file of the bot. Startup should be done here.
+# Make sure to add a .env file in the root of this project with the following content: TOKEN=<your bot token> (without <>)
+# Missions were hard coded into the code, good idea to use json files for that in the future (wasn't implemented due to time constraints)
+
+
 import functions
 
 import os
@@ -23,14 +30,14 @@ bot = commands.Bot(command_prefix='',
 start = True                            # Boolean variable for checking if the event has started. Can be used by 
                                         # admins to start the event (set to False if you want to use it)
 
-# Predefined channel ID's
+# Predefined channel ID's (Change to your own channel id's if you want to use this bot)
 REGISTER_CHANNEL = 1026562999508545558
 ADMIN_CHANNEL = 1028015282553360455
 CRIB_CHANNEL = 1028015345291771934
 HELP_CHANNEL = 1028015404032987216
 INFO_CHANNEL = 1030179986264559717
 ADMININFO_CHANNEL = 1030118347955765378
-# Main server admin
+# Main server admin id
 me = 168687487743557632
 
 # Role ID's (for checking and adding roles to users)
@@ -235,7 +242,7 @@ async def on_message(ctx: discord.Message):
                             await channel.send(embed=nextTask)
                             result = tasks.get_task(crib.currentMediumTask)
                             await channel.send(embed=result)
-                else:
+                else:                                                           # Sends message if user is not admin
                     await channel.send("Pachdon comrade, but you're not able to use this command")
                     # if crib.mediumAmt != 48:
                     #     result = tasks.get_task(crib.currentMediumTask)
@@ -313,4 +320,4 @@ async def create_guild(ctx, crib):
     await functions.create_guild(crib, str(member.id), channel.id)          # Create a guild in the database
     return True
 
-bot.run(TOKEN)
+bot.run(TOKEN)                                                             # Run the bot with the token provided in .env file
