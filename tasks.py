@@ -14,7 +14,9 @@ class Task:
         self.task = task
         self.reward = reward
 
-
+# Please don't do it like this. This is a very bad practice.
+# Use a json file instead. (Reuse one of the functions from functions.py that use json files)
+# This is just hardcoded.
 task_dict = {
     Task(47, "Mission objective: Vytenis", "1", 0, ":flag_lt: Komandos atstovas turi paglostyti Vytenio galvą\n:flag_gb: A representative of the team has to stroke Vytenis' head.", 1),
     Task(58, "Mission objective: Vytenis", "1", 0, ":flag_lt: Mystery box\n:flag_gb: Mystery box", 1),
@@ -710,15 +712,16 @@ org_dict = {
 #         else:
 #             return "This is not the correct answer"
 
+# Modifies json file after task skip
 def skip_task(cid, diff):
-    with open("cribChannels.json", "r") as f:
+    with open("cribChannels.json", "r") as f:           # Loads json file
         data = json.load(f)
-        if cid in data.keys():
-            kitten = data[cid]
+        if cid in data.keys():                          # Checks if channel is in json file
+            kitten = data[cid]                          # Loads guild id
             crib = functions.load_guild(kitten)
-            if diff == 1:
-                crib.skip(1)
-                functions.upload_guild(crib)
+            if diff == 1:                               
+                crib.skip(1)                            # Skips task
+                functions.upload_guild(crib)            # Uploads changes to json file
                 return "Easy objective has been sucessfully skipped"
             elif diff == 2:
                 crib.skip(2)
@@ -729,6 +732,7 @@ def skip_task(cid, diff):
                 functions.upload_guild(crib)
                 return "Hard objective has been sucessfully skipped"
 
+# Modifies json file after task finish (adds points)
 def org_give_points(uid, cid, Admin, diff):
     with open("cribChannels.json", "r") as f:
         data = json.load(f)
@@ -736,13 +740,13 @@ def org_give_points(uid, cid, Admin, diff):
             kitten = data[cid]
             crib = functions.load_guild(kitten)
             if diff == 1:
-                name, points = org_dict[str(crib.currentEasyTask)].values()
+                name, points = org_dict[str(crib.currentEasyTask)].values()     # Loads task name and reward
                 if Admin == 1:
-                    result = crib.add_points(points)
+                    result = crib.add_points(points)                            # Adds points to guild
                     if result:
-                        crib.give_next(1)
+                        crib.give_next(1)                                       # Gives next task
                         functions.upload_guild(crib)
-                        if crib.currentEasyTask == -1:
+                        if crib.currentEasyTask == -1:                          # Checks if all tasks are completed
                             # embed = discord.Embed(title="Congratulations! :tada::tada:", 
                             # description="You have completed:\n" + str(name) + "\nReward of "
                             #  + str(points) + " points has been given!\nYou have completed all easy tasks!")
