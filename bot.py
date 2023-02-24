@@ -9,9 +9,9 @@ import tasks
 
 description = '''A special bot made for a special event called "CatToTheFuture"'''
 
+# Load token from .env file
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
-
 # Intent - ability of a bot to do something (example: message intent for messaging and etc.)
 intents = discord.Intents.all()
 
@@ -19,7 +19,10 @@ intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='',
                    description=description, intents=intents)
 
-start = True
+# Global variables
+start = True                            # Boolean variable for checking if the event has started. Can be used by 
+                                        # admins to start the event (set to False if you want to use it)
+
 # Predefined channel ID's
 REGISTER_CHANNEL = 1026562999508545558
 ADMIN_CHANNEL = 1028015282553360455
@@ -30,19 +33,23 @@ ADMININFO_CHANNEL = 1030118347955765378
 # Main server admin
 me = 168687487743557632
 
-# Role ID's
+# Role ID's (for checking and adding roles to users)
 ADMIN_ID = 1029148212923215912
 PARTICIPANT_ID = 1028015588301344940
 HELPER_ID = 1028015634837143623
 BOT_ID = 1026563432054530173
 
+# List of available commands (dunno if this is needed xd)
 command_list = ["points", "easy", "medium", "hard", "end", "help", "lead", "skipeasy", "skipmedium", "skiphard", "done1", "done2", "done3"]
+
+# Start up message
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('Pachdon bot v1.0 up and running')
     print('------'*10)
 
+# Checking input messages
 @bot.event
 async def on_message(ctx: discord.Message):
     if not ctx.author.bot:
@@ -56,21 +63,25 @@ async def on_message(ctx: discord.Message):
         data = data[1:]
         data = ' '.join(data)
 
+        # Register channel
         if channel.id == REGISTER_CHANNEL:
             if functions.register(str(author.id)):
-                role = get(ctx.guild.roles, id=PARTICIPANT_ID)
+                role = get(ctx.guild.roles, id=PARTICIPANT_ID)      # Registers player as a participant
                 await author.add_roles(role)
-            await ctx.delete()
+            await ctx.delete()                                      # Deletes message
 
-        elif channel.id == ADMIN_CHANNEL and command == "start":
-            start = True
+
+        # Admin channel
+        elif channel.id == ADMIN_CHANNEL and command == "start":    # Checks if admin channel and if message is "start"
+            start = True                                            # Sets start to True and allows commands to be used            
             print("Event has started")
-            await channel.send("Nu chio pojehali chebra\nTikiuosi botas gyvens. Amen.")
+            await channel.send("Nu chio pojehali chebra\nTikiuosi botas gyvens. Amen.") 
 
-        elif channel.id == CRIB_CHANNEL and command == "create":
-            if not functions.find_user(str(author.id)):
-                name = functions.randomTeamName()
-                if await create_guild(ctx, str(name)):
+        # Crib channel
+        elif channel.id == CRIB_CHANNEL and command == "create":    # Checks if crib channel and if message is "create"
+            if not functions.find_user(str(author.id)):             # Checks if user already has a crib
+                name = functions.randomTeamName()                   # Generates random name for the crib
+                if await create_guild(ctx, str(name)):              # Creates a new crib
                     await channel.send("Welcome to the crib dawg, the name of your kitten is: " + str(name))
                 else:
                     await channel.send("Something is not right fella")
@@ -78,6 +89,8 @@ async def on_message(ctx: discord.Message):
                 await channel.send("I think that you already have a kitten, one kitten for one group :)")
             # else:
                  #no message here?
+
+        # Crib channel
         elif channel.id == CRIB_CHANNEL and command == "join":
             if data:
                 if not functions.find_user(str(author.id)):
@@ -97,6 +110,7 @@ async def on_message(ctx: discord.Message):
         elif not start and command in command_list:
             await channel.send("Dede Avidij dar neleido pradet")
 
+        # Help channel
         elif channel.id == HELP_CHANNEL and command == "points":
             try:
                 if data:
@@ -109,81 +123,91 @@ async def on_message(ctx: discord.Message):
                 print("main" + str(e))
                 await channel.send("points <coven> <number>")
 
+        # Global command HELP. Sends message to help channel if user types "help" in any channel
         elif command == "help":
             sub_channel = get(ctx.guild.channels, id=HELP_CHANNEL)
-            await sub_channel.send("<@" + str(me) + "> help at <#" + str(channel.id) + ">")
+            await sub_channel.send("<@" + str(me) + "> help at <#" + str(channel.id) + ">") # Sends message to help channel with info about the user and the channel
 
+        # Global command EASY. Checks if channel is not register or crib channel and if user has a crib
         elif command == "easy" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
-            crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.currentEasyTask != -1:
-                result = tasks.get_task(crib.currentEasyTask)
-                await channel.send(embed = result)
+            crib = functions.load_guild(functions.find_user(str(author.id)))    # Loads crib of the user
+            if crib.currentEasyTask != -1:                                      # Checks if user has any easy tasks left
+                result = tasks.get_task(crib.currentEasyTask)                   # Gets task from tasks.py
+                await channel.send(embed = result)                              # Sends task to the channel
             else:
-                await channel.send("You have completed all of your easy tasks!")
+                await channel.send("You have completed all of your easy tasks!")    # Sends message if user has no easy tasks left
 
+        # Global command MEDIUM. Checks if channel is not register or crib channel and if user has a crib
         elif command == "medium" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
-            crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.currentMediumTask != -1:
-                result = tasks.get_task(crib.currentMediumTask)
-                await channel.send(embed = result)
+            crib = functions.load_guild(functions.find_user(str(author.id)))    # Loads crib of the user
+            if crib.currentMediumTask != -1:                                    # Checks if user has any medium tasks left
+                result = tasks.get_task(crib.currentMediumTask)                 # Gets task from tasks.py
+                await channel.send(embed = result)                              # Sends task to the channel
             else:
-                await channel.send("You have completed all of your medium tasks!")
+                await channel.send("You have completed all of your medium tasks!")  # Sends message if user has no medium tasks left
 
+        # Global command HARD. Checks if channel is not register or crib channel and if user has a crib
         elif command == "hard" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
-            crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.currentHardTask != -1:
-                result = tasks.get_task(crib.currentHardTask)
-                await channel.send(embed = result)
-            
+            crib = functions.load_guild(functions.find_user(str(author.id)))    # Loads crib of the user
+            if crib.currentHardTask != -1:                                      # Checks if user has any hard tasks left
+                result = tasks.get_task(crib.currentHardTask)                   # Gets task from tasks.py
+                await channel.send(embed = result)                              # Sends task to the channel
             else:
-                await channel.send("You have completed all of your hard tasks!")
+                await channel.send("You have completed all of your hard tasks!")    # Sends message if user has no hard tasks left
 
+        # Global command LEADERBOARD. Checks if channel is admin channel
+        # Updates the leaderboard and sends it to the channel
         elif command == "lead":
             if channel.id == ADMIN_CHANNEL:
                 result = functions.update_leaderboard()
                 if result:
                     await channel.send(result)
-            else:
+            else:                                                   # Haven't used it, maybe works maybe not ¯\_(ツ)_/¯
                 kittenname = functions.find_user(str(author.id))
                 crib = functions.load_guild(kittenname)
                 await channel.send(embed=crib.lead())
 
+        # Global command SKIPEASY. Checks if channel is not register or crib channel and if user has a crib
         elif command == "skipeasy" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
-            crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.easyAmt == 60:
+            crib = functions.load_guild(functions.find_user(str(author.id)))    # Loads crib of the user
+            if crib.easyAmt == 60:                                              # Checks if it's the last task
                 await channel.send("Objective can not be skipped. This is the last one")
             else:
-                result = tasks.skip_task(str(channel.id), 1)
+                result = tasks.skip_task(str(channel.id), 1)                    # Skips task
                 if result:
-                    await channel.send(result)
+                    await channel.send(result)                                  # Sends message if task was skipped
         
+        # Global command SKIPMEDIUM. Checks if channel is not register or crib channel and if user has a crib
         elif command == "skipmedium" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
-            crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.mediumAmt == 47:
+            crib = functions.load_guild(functions.find_user(str(author.id)))    # Loads crib of the user
+            if crib.mediumAmt == 47:                                            # Checks if it's the last task
                 await channel.send("Objective can not be skipped. This is the last one")
             else:
-                result = tasks.skip_task(str(channel.id), 2)
+                result = tasks.skip_task(str(channel.id), 2)                    # Skips task
                 if result:
-                    await channel.send(result)
+                    await channel.send(result)                                  # Sends message if task was skipped
         
+        # Global command SKIPHARD. Checks if channel is not register or crib channel and if user has a crib
         elif command == "skiphard" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
-            crib = functions.load_guild(functions.find_user(str(author.id)))
-            if crib.hardAmt == 22:
+            crib = functions.load_guild(functions.find_user(str(author.id)))    # Loads crib of the user
+            if crib.hardAmt == 22:                                              # Checks if it's the last task
                 await channel.send("Objective can not be skipped. This is the last one")
             else:
-                result = tasks.skip_task(str(channel.id), 3)
+                result = tasks.skip_task(str(channel.id), 3)                    # Skips task
                 if result:
-                    await channel.send(result)
+                    await channel.send(result)                                  # Sends message if task was skipped
 
+        # Global command DONE1. Checks if channel is not register or crib channel and if user has a crib
+        # Used by admins to give points to users if task was done
         elif command == "done1" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             # if data == '1':
-                role = get(ctx.guild.roles, id=ADMIN_ID)
+                role = get(ctx.guild.roles, id=ADMIN_ID)                        # Gets admin role
                 if role in ctx.author.roles or ctx.author.id == me:
-                    result = tasks.org_give_points(str(author.id), str(channel.id), True, 1)
+                    result = tasks.org_give_points(str(author.id), str(channel.id), True, 1)    # Gives points to user
                     if result:
-                        await channel.send(embed=result)
+                        await channel.send(embed=result)                        # Sends message if task was done
                         crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
-                        if crib.easyAmt != 61:
+                        if crib.easyAmt != 61:                                  # Checks if it's the last task, otherwise sends next task    
                             nextTask = discord.Embed(title="Your next task is:")
                             await channel.send(embed=nextTask)
                             result = tasks.get_task(crib.currentEasyTask)
@@ -195,16 +219,18 @@ async def on_message(ctx: discord.Message):
                     #     result = tasks.get_task(crib.currentEasyTask)
                     #     await channel.send(embed=result)
 
+        # Global command DONE2. Checks if channel is not register or crib channel and if user has a crib
+        # Used by admins to give points to users if task was done
         elif command == "done2" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             # if data == '1':
                 # role = get(ctx.guild.roles, name=ctx.channel.name)
-                role = get(ctx.guild.roles, id=ADMIN_ID)
+                role = get(ctx.guild.roles, id=ADMIN_ID)                        # Gets admin role
                 if role in ctx.author.roles or ctx.author.id == me:
-                    result = tasks.org_give_points(str(author.id), str(channel.id), True, 2)
+                    result = tasks.org_give_points(str(author.id), str(channel.id), True, 2)   # Gives points to user
                     if result:
-                        await channel.send(embed=result)
+                        await channel.send(embed=result)                        # Sends message if task was done
                         crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
-                        if crib.mediumAmt != 48:
+                        if crib.mediumAmt != 48:                                # Checks if it's the last task, otherwise sends next task
                             nextTask = discord.Embed(title="Your next task is:")
                             await channel.send(embed=nextTask)
                             result = tasks.get_task(crib.currentMediumTask)
@@ -215,16 +241,18 @@ async def on_message(ctx: discord.Message):
                     #     result = tasks.get_task(crib.currentMediumTask)
                     #     await channel.send(embed=result)
 
+        # Global command DONE3. Checks if channel is not register or crib channel and if user has a crib
+        # Used by admins to give points to users if task was done
         elif command == "done3" and channel.id != REGISTER_CHANNEL and channel.id != CRIB_CHANNEL:
             # if data == '1':
                 # role = get(ctx.guild.roles, name=ctx.channel.name)
-                role = get(ctx.guild.roles, id=ADMIN_ID)
+                role = get(ctx.guild.roles, id=ADMIN_ID)                            # Gets role of the admin
                 if role in ctx.author.roles or ctx.author.id == me:
-                    result = tasks.org_give_points(str(author.id), str(channel.id), True, 3)
+                    result = tasks.org_give_points(str(author.id), str(channel.id), True, 3)    # Gives points to user
                     if result:
-                        await channel.send(embed=result)
+                        await channel.send(embed=result)                            # Sends message if points were given
                         crib = functions.load_guild(functions.find_cribname_by_channelid(str(channel.id)))
-                        if crib.hardAmt != 23:
+                        if crib.hardAmt != 23:                                      # Checks if it's the last task, otherwise sends next task        
                             nextTask = discord.Embed(title="Your next task is:")
                             await channel.send(embed=nextTask)
                             result = tasks.get_task(crib.currentHardTask)
@@ -235,15 +263,18 @@ async def on_message(ctx: discord.Message):
                     #     result = tasks.get_task(crib.currentHardTask)
                     #     await channel.send(embed=result)
 
+        #Global command END. Used for ending the game - Admin only
         elif command == "end":
-            if author.id == me:
-                result = functions.end_game(str(channel.id))
+            if author.id == me:                                                 # Checks if user is the bot owner
+                result = functions.end_game(str(channel.id))                    # Ends the game
                 if result:
-                    await channel.send(result)
+                    await channel.send(result)                                  # Sends message if game was ended
             else:
-                sub_channel = get(ctx.guild.channels, id=HELP_CHANNEL)
+                sub_channel = get(ctx.guild.channels, id=HELP_CHANNEL)          # Sends message to help channel if user is not the bot owner
                 await sub_channel.send("<@" + str(me) + "> o kitten want to end the game - <#" + str(channel.id) + ">")
         
+        # Global command INFO. This command is used to send info about other commands into the info channel.
+        # Info channel should be read-only so only admins can use it
         elif command == "info" and channel.id == INFO_CHANNEL:
             await ctx.delete()
             commandInfo = discord.Embed(title="help", description=":flag_lt:Iškviečia organizatorių\n:flag_gb:Calls the organizer")
@@ -264,32 +295,22 @@ async def on_message(ctx: discord.Message):
             await channel.send(embed=commandInfo)
             commandInfo = discord.Embed(title="skiphard", description=":flag_lt:Praleidžia sunkią užduotį (vėliau galima prie jos grįžti)\n:flag_gb:Skips a hard mission")
             await channel.send(embed=commandInfo)
-        # elif command == "admininfo" and channel.id == ADMININFO_CHANNEL:
-        #     await ctx.delete()
-        #     commandInfo = discord.Embed(title="COMMAND LIST")
-        #     await channel.send(embed=commandInfo)
-        #     commandInfo = discord.Embed(title="done1", description=":flag_lt:Užbaigia easy užd.")
-        #     await channel.send(embed=commandInfo)
-        #     commandInfo = discord.Embed(title="done2", description=":flag_lt:Užbaigia medium užd.")
-        #     await channel.send(embed=commandInfo)
-        #     commandInfo = discord.Embed(title="done3", description=":flag_lt:Užbaigia hard užd.")
-        #     await channel.send(embed=commandInfo)
 
-
+# This command is used to create a team with a random name
 async def create_guild(ctx, crib):
     guild = ctx.guild
     member = ctx.author
     kittenrole = await guild.create_role(name=crib.lower(), colour = discord.Colour.random(), hoist = True)
     # kittenrole.hoist = True  
     # helper = get(ctx.guild.roles, id=HELPER_ID)
-    await member.add_roles(kittenrole)
-    overwrites = {
+    await member.add_roles(kittenrole)                                      # Add role to the user
+    overwrites = {                                                          # Set permissions for the channel
         guild.default_role: discord.PermissionOverwrite(read_messages = False),
         kittenrole: discord.PermissionOverwrite(read_messages=True)
         # helper: discord.PermissionOverwrite(read_messages=True)
     }
-    channel = await guild.create_text_channel(crib, overwrites=overwrites)
-    await functions.create_guild(crib, str(member.id), channel.id)
+    channel = await guild.create_text_channel(crib, overwrites=overwrites)  # Create a channel
+    await functions.create_guild(crib, str(member.id), channel.id)          # Create a guild in the database
     return True
 
 bot.run(TOKEN)
